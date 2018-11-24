@@ -143,11 +143,19 @@ extern crate lazy_static;
 extern crate console;
 extern crate number_prefix;
 
+#[cfg(feature = "indicatif-rayon")]
+extern crate rayon;
+
 mod format;
 mod progress;
 mod utils;
+mod iter;
 
 pub use format::{BinaryBytes, DecimalBytes, FormattedDuration, HumanBytes, HumanDuration};
 pub use progress::{
-    MultiProgress, ProgressBar, ProgressBarIter, ProgressDrawTarget, ProgressStyle,
+    MultiProgress, ProgressBar, ProgressDrawTarget, ProgressStyle,
 };
+pub use iter::{ProgressIterator, ProgressBarIter};
+
+#[cfg(feature = "indicatif-rayon")]
+pub use iter::rayon::ParProgressBarIter;
