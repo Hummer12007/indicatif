@@ -158,4 +158,4 @@ pub use progress::{
 pub use iter::{ProgressIterator, ProgressBarIter};
 
 #[cfg(feature = "indicatif-rayon")]
-pub use iter::rayon::ParProgressBarIter;
+pub use iter::rayon::{ParallelProgressIterator, ParProgressBarIter};
